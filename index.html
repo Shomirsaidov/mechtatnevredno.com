@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>мечтатьневредно.com</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -15,13 +17,14 @@
 }
 
 body{
-    font-family:Inter,sans-serif;
+    font-family:'Manrope',sans-serif;
     background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
     color:white;
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    overflow-x:hidden;
 }
 
 .container{
@@ -30,9 +33,10 @@ body{
 }
 
 .logo{
-    font-size:54px;
+    font-size:58px;
     font-weight:800;
-    margin-bottom:20px;
+    margin-bottom:18px;
+    letter-spacing:-1px;
 }
 
 .tagline{
@@ -43,31 +47,34 @@ body{
 
 .card{
     background:rgba(255,255,255,.08);
-    backdrop-filter:blur(15px);
+    backdrop-filter:blur(18px);
     border:1px solid rgba(255,255,255,.15);
-    border-radius:24px;
-    padding:45px;
+    border-radius:28px;
+    padding:48px;
+    box-shadow:0 30px 60px rgba(0,0,0,.25);
 }
 
 h2{
-    font-size:34px;
-    margin-bottom:20px;
+    font-size:36px;
+    margin-bottom:22px;
 }
 
 p{
     color:#d1d5db;
-    line-height:1.7;
+    line-height:1.8;
     font-size:18px;
 }
 
 .btn{
     display:inline-block;
     margin-top:35px;
-    padding:18px 40px;
+    padding:18px 42px;
     background:#6366f1;
     color:white;
-    text-decoration:none;
+    border:none;
+    cursor:pointer;
     border-radius:14px;
+    font-size:18px;
     font-weight:700;
     transition:.25s;
 }
@@ -77,12 +84,93 @@ p{
     background:#4f46e5;
 }
 
+.form{
+    display:none;
+    margin-top:35px;
+    animation:fade .4s ease;
+}
+
+.form input{
+    width:100%;
+    padding:17px;
+    margin:12px 0;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    font-size:16px;
+    background:rgba(255,255,255,.12);
+    color:white;
+}
+
+.form input::placeholder{
+    color:#cbd5e1;
+}
+
+.submit{
+    width:100%;
+    margin-top:14px;
+    padding:17px;
+    border:none;
+    border-radius:12px;
+    background:#6366f1;
+    color:white;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.submit:hover{
+    background:#4f46e5;
+}
+
+.success{
+    display:none;
+    margin-top:35px;
+    animation:fade .5s ease;
+}
+
+.success h3{
+    font-size:34px;
+    color:#7CFFB2;
+    margin-bottom:12px;
+}
+
+.success p{
+    font-size:20px;
+    color:white;
+}
+
 .footer{
     margin-top:45px;
     color:#94a3b8;
     font-size:14px;
 }
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+canvas{
+position:fixed;
+left:0;
+top:0;
+pointer-events:none;
+z-index:9999;
+}
+
 </style>
+
 </head>
 
 <body>
@@ -108,27 +196,108 @@ p{
 <br>
 
 <p>
-Наш проект посвящён людям, которые ставят перед собой амбициозные цели,
-верят в себя и идут вперёд, несмотря ни на что.
+На нашем сайте можно приобрести премиум подписки.
+Оставьте заявку ниже и мы <b>подумаем.</b>
 </p>
 
-<br>
+<button class="btn" id="openForm">
+Приобрести премиум
+</button>
+
+<div class="form" id="form">
+
+<input type="text" placeholder="Ваше имя">
+
+<input type="text" placeholder="@telegram">
+
+<input type="tel" placeholder="Телефон">
+
+<button class="submit" id="submitBtn">
+Отправить заявку
+</button>
+
+</div>
+
+<div class="success" id="success">
+
+<h3>
+🎉 Ваша заявка принята.
+</h3>
 
 <p>
-Мечтайте. Работайте. Достигайте.
+Мы посмотрим :)
 </p>
 
-<a class="btn" href="#">
-Начать мечтать
-</a>
+</div>
 
 </div>
 
 <div class="footer">
-© 2026 мечтатьневредно.com • Сатирический демонстрационный проект
+© 2026 мечтатьневредно.com • Made by A.Shomirsaidov
 </div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script>
+
+const openBtn=document.getElementById("openForm");
+const form=document.getElementById("form");
+const success=document.getElementById("success");
+
+openBtn.addEventListener("click",()=>{
+
+openBtn.style.display="none";
+form.style.display="block";
+
+});
+
+document.getElementById("submitBtn").addEventListener("click",(e)=>{
+
+e.preventDefault();
+
+form.style.display="none";
+success.style.display="block";
+
+const duration=2500;
+const end=Date.now()+duration;
+
+(function frame(){
+
+confetti({
+particleCount:5,
+angle:60,
+spread:55,
+origin:{x:0}
+});
+
+confetti({
+particleCount:5,
+angle:120,
+spread:55,
+origin:{x:1}
+});
+
+if(Date.now()<end){
+requestAnimationFrame(frame);
+}
+
+})();
+
+setTimeout(()=>{
+
+confetti({
+particleCount:250,
+spread:150,
+origin:{y:.6}
+});
+
+},400);
+
+});
+
+</script>
 
 </body>
 </html>
