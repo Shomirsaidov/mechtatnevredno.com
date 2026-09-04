@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Abubakr Shomirsaidov | AI & Software Engineering</title>
+
     <meta
         name="description"
         content="Abubakr Shomirsaidov. AI, Machine Learning, Software Engineering and Data Research."
     >
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -37,6 +37,7 @@
     </script>
 
     <style>
+
         html {
             scroll-behavior: smooth;
         }
@@ -52,7 +53,7 @@
             color: #ffffff;
         }
 
-        /* Background grid */
+        /* Background */
 
         .grid-bg {
             background-image:
@@ -68,10 +69,10 @@
             background-size: 50px 50px;
         }
 
-        /* Cards */
+        /* Glass cards */
 
         .glass {
-            background: rgba(255, 255, 255, 0.78);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(24, 24, 27, 0.08);
@@ -89,16 +90,6 @@
             transform: translateY(-6px);
             border-color: rgba(24, 24, 27, 0.18);
             box-shadow: 0 20px 50px rgba(24, 24, 27, 0.08);
-        }
-
-        /* Timeline */
-
-        .timeline-line {
-            background: linear-gradient(
-                to bottom,
-                rgba(24, 24, 27, 0.25),
-                rgba(24, 24, 27, 0.03)
-            );
         }
 
         /* Scroll reveal */
@@ -128,7 +119,7 @@
             transition-delay: 0.3s;
         }
 
-        /* Profile photo */
+        /* Profile */
 
         .profile-photo {
             transition:
@@ -141,13 +132,86 @@
             box-shadow: 0 25px 60px rgba(24, 24, 27, 0.12);
         }
 
-        @media (max-width: 768px) {
-            .grid-bg {
-                background-size: 35px 35px;
+        /* Community slider */
+
+        .community-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            cursor: grab;
+        }
+
+        .community-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .community-slider:active {
+            cursor: grabbing;
+        }
+
+        .community-card {
+            flex: 0 0 calc((100% - 2rem) / 3);
+            scroll-snap-align: start;
+        }
+
+        @media (max-width: 900px) {
+            .community-card {
+                flex: 0 0 calc((100% - 1rem) / 2);
             }
         }
 
+        @media (max-width: 640px) {
+            .community-card {
+                flex: 0 0 100%;
+            }
+        }
+
+        .slider-button {
+            width: 42px;
+            height: 42px;
+            border: 1px solid #d4d4d8;
+            border-radius: 9999px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .slider-button:hover {
+            background: #18181b;
+            color: white;
+            border-color: #18181b;
+        }
+
+        /* Small horizontal line */
+
+        .section-number {
+            position: relative;
+        }
+
+        .section-number::after {
+            content: "";
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: #d4d4d8;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 768px) {
+
+            .grid-bg {
+                background-size: 35px 35px;
+            }
+
+        }
+
         @media (prefers-reduced-motion: reduce) {
+
             html {
                 scroll-behavior: auto;
             }
@@ -157,7 +221,13 @@
                 transform: none;
                 transition: none;
             }
+
+            .community-slider {
+                scroll-behavior: auto;
+            }
+
         }
+
     </style>
 </head>
 
@@ -172,6 +242,7 @@
 <nav
     class="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200/80 bg-white/85 backdrop-blur-xl"
 >
+
     <div
         class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
     >
@@ -183,44 +254,37 @@
             AS<span class="text-zinc-400">.</span>
         </a>
 
+
         <div
             class="hidden md:flex items-center gap-7 text-sm text-zinc-500"
         >
-            <a
-                href="#about"
-                class="hover:text-zinc-900 transition"
-            >
+
+            <a href="#about" class="hover:text-zinc-900 transition">
                 About
             </a>
 
-            <a
-                href="#experience"
-                class="hover:text-zinc-900 transition"
-            >
+            <a href="#experience" class="hover:text-zinc-900 transition">
                 Experience
             </a>
 
-            <a
-                href="#projects"
-                class="hover:text-zinc-900 transition"
-            >
+            <a href="#projects" class="hover:text-zinc-900 transition">
                 Projects
             </a>
 
-            <a
-                href="#education"
-                class="hover:text-zinc-900 transition"
-            >
+            <a href="#education" class="hover:text-zinc-900 transition">
                 Education
             </a>
 
-            <a
-                href="#contact"
-                class="hover:text-zinc-900 transition"
-            >
+            <a href="#community" class="hover:text-zinc-900 transition">
+                Community
+            </a>
+
+            <a href="#contact" class="hover:text-zinc-900 transition">
                 Contact
             </a>
+
         </div>
+
 
         <a
             href="mailto:126080022@link.cuhk.edu.cn"
@@ -230,6 +294,7 @@
         </a>
 
     </div>
+
 </nav>
 
 
@@ -257,8 +322,6 @@
         <div
             class="grid lg:grid-cols-[1fr_330px] gap-14 items-center"
         >
-
-            <!-- HERO TEXT -->
 
             <div class="reveal visible">
 
@@ -328,8 +391,6 @@
 
             </div>
 
-
-            <!-- PROFILE PHOTO -->
 
             <div
                 class="flex justify-center lg:justify-end reveal reveal-delay-2 visible"
@@ -402,7 +463,7 @@
             <div class="reveal">
 
                 <p
-                    class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
+                    class="section-number font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
                 >
                     01 / About
                 </p>
@@ -438,9 +499,7 @@
                     class="grid sm:grid-cols-3 gap-4 mt-12"
                 >
 
-                    <div
-                        class="glass rounded-2xl p-6 reveal reveal-delay-1"
-                    >
+                    <div class="glass rounded-2xl p-6">
 
                         <p
                             class="text-3xl font-semibold text-zinc-950"
@@ -455,26 +514,22 @@
                     </div>
 
 
-                    <div
-                        class="glass rounded-2xl p-6 reveal reveal-delay-2"
-                    >
+                    <div class="glass rounded-2xl p-6">
 
                         <p
                             class="text-3xl font-semibold text-zinc-950"
                         >
-                            2,000+
+                            8,800+
                         </p>
 
                         <p class="mt-2 text-sm text-zinc-500">
-                            Persian poems on Shoiron
+                            Poetry pieces on Shoiron
                         </p>
 
                     </div>
 
 
-                    <div
-                        class="glass rounded-2xl p-6 reveal reveal-delay-3"
-                    >
+                    <div class="glass rounded-2xl p-6">
 
                         <p
                             class="text-3xl font-semibold text-zinc-950"
@@ -519,7 +574,7 @@
             <div class="reveal">
 
                 <p
-                    class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
+                    class="section-number font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
                 >
                     02 / Experience
                 </p>
@@ -529,7 +584,6 @@
 
             <div class="space-y-12">
 
-                <!-- ZYPL -->
 
                 <article
                     class="relative pl-8 border-l border-zinc-200 reveal"
@@ -562,7 +616,7 @@
                         <span
                             class="font-mono text-xs text-zinc-400"
                         >
-                            Oct. 2024 — May 2025
+                            2024 — 2025
                         </span>
 
                     </div>
@@ -573,37 +627,29 @@
                     >
 
                         <li>
-                            Worked on AI-based credit-scoring systems
-                            for financial institutions across Asia.
+                            Participated in building scoring models
+                            for 4 banks in Central Asia and UAE.
                         </li>
 
                         <li>
-                            Trained three credit-scoring models used
-                            by partner institutions including Planet9,
-                            Barakat Moliya, and FMFB.
+                            Proposed and enabled 3 new parameters
+                            in ML models.
                         </li>
 
                         <li>
-                            Designed and developed
-                            <span class="font-mono text-zinc-700">
-                                zypl-macro
-                            </span>,
-                            a Python library for collecting real-time
-                            macroeconomic indicators.
+                            Built a real-time module for gathering
+                            macroeconomic data.
                         </li>
 
                         <li>
-                            Worked with financial data while addressing
-                            data quality, privacy, ethical, and
-                            regulatory constraints.
+                            Over 55k credits issued by models built
+                            during my internship with my contribution.
                         </li>
 
                     </ul>
 
                 </article>
 
-
-                <!-- PLC -->
 
                 <article
                     class="relative pl-8 border-l border-zinc-200 reveal"
@@ -627,52 +673,25 @@
                             </h3>
 
                             <p class="text-zinc-500 mt-1">
-                                PLC Group · Remote
+                                Инноватсияи Ояндасоз · Khujand, Tajikistan
                             </p>
 
                         </div>
 
-
-                        <span
-                            class="font-mono text-xs text-zinc-400"
-                        >
-                            2024 — 2025
-                        </span>
-
                     </div>
 
 
-                    <ul
-                        class="mt-6 space-y-3 text-sm leading-6 text-zinc-500"
+                    <p
+                        class="mt-6 text-sm leading-7 text-zinc-500"
                     >
-
-                        <li>
-                            Developed full-stack functionality for
-                            an automotive marketplace.
-                        </li>
-
-                        <li>
-                            Built frontend components and backend
-                            services using JavaScript, React,
-                            Node.js, REST APIs, and PostgreSQL.
-                        </li>
-
-                        <li>
-                            Implemented vehicle search, filtering,
-                            customer requests, and auction workflows.
-                        </li>
-
-                        <li>
-                            Debugged production issues and maintained
-                            reusable components across the platform.
-                        </li>
-
-                    </ul>
+                        Worked as Junior Frontend Developer at an
+                        outsource company. Participated in development
+                        of ERP, CRM, team management and e-commerce
+                        solutions for businesses abroad.
+                    </p>
 
                 </article>
 
-
-                <!-- POPUTKI -->
 
                 <article
                     class="relative pl-8 border-l border-zinc-200 reveal"
@@ -701,41 +720,18 @@
 
                         </div>
 
-
-                        <span
-                            class="font-mono text-xs text-zinc-400"
-                        >
-                            2023 — 2024
-                        </span>
-
                     </div>
 
 
-                    <ul
-                        class="mt-6 space-y-3 text-sm leading-6 text-zinc-500"
+                    <p
+                        class="mt-6 text-sm leading-7 text-zinc-500"
                     >
-
-                        <li>
-                            Developed features for a ride-sharing
-                            and intercity transportation platform.
-                        </li>
-
-                        <li>
-                            Built interfaces for routes, trips,
-                            bookings, profiles, and driver functionality.
-                        </li>
-
-                        <li>
-                            Developed REST APIs and database operations
-                            using Node.js and PostgreSQL.
-                        </li>
-
-                        <li>
-                            Implemented booking logic, seat availability,
-                            notifications, ratings, and reviews.
-                        </li>
-
-                    </ul>
+                        Built the first carpooling and bus tickets
+                        platform in Tajikistan. Over 700+ bus tickets
+                        acquired through the platform by users.
+                        6 logistics companies in Tajikistan sell
+                        tickets through the platform today.
+                    </p>
 
                 </article>
 
@@ -768,7 +764,7 @@
             <div class="reveal">
 
                 <p
-                    class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
+                    class="section-number font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
                 >
                     03 / Projects
                 </p>
@@ -780,7 +776,6 @@
                 class="grid md:grid-cols-2 gap-5"
             >
 
-                <!-- TAJIKLAW -->
 
                 <article
                     class="project-card glass rounded-3xl p-7 reveal"
@@ -806,58 +801,35 @@
 
                         </div>
 
-
-                        <span
-                            class="text-xs font-mono text-zinc-400"
-                        >
-                            2024 — 2026
-                        </span>
-
                     </div>
 
 
                     <p
                         class="mt-6 text-sm leading-7 text-zinc-500"
                     >
-                        AI legal-information platform designed to
-                        provide Tajik citizens with accessible
-                        legislative information and assist local
-                        firms with legal-document analysis.
+                        AI legal consultant for Tajik law. Partnered
+                        with the Ministry of Justice and Internal
+                        Affairs and received funding from a local law
+                        firm.
                     </p>
 
 
-                    <div
-                        class="flex flex-wrap gap-2 mt-7"
-                    >
+                    <div class="flex flex-wrap gap-2 mt-7">
 
-                        <span
-                            class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600"
-                        >
-                            Python
+                        <span class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600">
+                            AI
                         </span>
 
-                        <span
-                            class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600"
-                        >
+                        <span class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600">
                             RAG
                         </span>
 
-                        <span
-                            class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600"
-                        >
+                        <span class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600">
                             LLMs
                         </span>
 
-                        <span
-                            class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600"
-                        >
+                        <span class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600">
                             NLP
-                        </span>
-
-                        <span
-                            class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600"
-                        >
-                            Vector Search
                         </span>
 
                     </div>
@@ -868,21 +840,19 @@
                     >
 
                         <p class="text-sm text-zinc-500">
-                            U.S. Department of State funded
+                            Featured in Times of Central Asia and Asia Plus.
                         </p>
 
-                        <p
-                            class="mt-2 text-sm text-zinc-700"
-                        >
-                            $8,000 investment offer from Aloqa Ventures
+                        <p class="mt-2 text-sm text-zinc-700">
+                            Top 250 of Blue Ocean Student Entrepreneur
+                            Competition from 23,000+ participants in
+                            173 countries.
                         </p>
 
                     </div>
 
                 </article>
 
-
-                <!-- SHOIRON -->
 
                 <article
                     class="project-card glass rounded-3xl p-7 reveal reveal-delay-2"
@@ -903,17 +873,10 @@
                             <h3
                                 class="mt-4 text-2xl font-semibold text-zinc-950"
                             >
-                                Shoiron.tj / Mavlono
+                                Shoiron.tj
                             </h3>
 
                         </div>
-
-
-                        <span
-                            class="text-xs font-mono text-zinc-400"
-                        >
-                            2023 — 2026
-                        </span>
 
                     </div>
 
@@ -921,60 +884,989 @@
                     <p
                         class="mt-6 text-sm leading-7 text-zinc-500"
                     >
-                        Open-source Persian poetry platform
-                        containing 2,000+ poems with an AI component
-                        for interpreting and explaining poetic meaning.
+                        The biggest open poetry hub for reading,
+                        sharing and interpreting Persian poetry.
+                        Over 8,800 poetry pieces are available to date,
+                        with 2,000+ monthly active users.
                     </p>
 
 
-                    <div
-                        class="flex flex-wrap gap-2 mt-7"
-                    >
+                    <div class="flex flex-wrap gap-2 mt-7">
 
-                        <span
-                            class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600"
-                        >
-                            Python
-                        </span>
-
-                        <span
-                            class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600"
-                        >
+                        <span class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600">
                             NLP
                         </span>
 
-                        <span
-                            class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600"
-                        >
-                            LLMs
+                        <span class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600">
+                            AI
                         </span>
 
-                        <span
-                            class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600"
-                        >
-                            Web Development
+                        <span class="px-3 py-1.5 rounded-full bg-zinc-100 text-xs text-zinc-600">
+                            Full-Stack
                         </span>
-
-                    </div>
-
-
-                    <div
-                        class="mt-8 pt-6 border-t border-zinc-200"
-                    >
-
-                        <p class="text-sm text-zinc-500">
-                            AI-assisted interpretation
-                        </p>
-
-                        <p
-                            class="mt-2 text-sm text-zinc-700"
-                        >
-                            Persian-language cultural data preservation
-                        </p>
 
                     </div>
 
                 </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COMMUNITY & LEADERSHIP
+========================================================= -->
+
+<section
+    id="community"
+    class="border-t border-zinc-200 overflow-hidden"
+>
+
+    <div
+        class="max-w-6xl mx-auto px-6 py-28"
+    >
+
+        <div
+            class="grid lg:grid-cols-[220px_1fr] gap-12"
+        >
+
+            <!-- SECTION LABEL -->
+
+            <div class="reveal">
+
+                <p
+                    class="section-number font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
+                >
+                    04 / Community
+                </p>
+
+
+                <p
+                    class="mt-7 text-sm leading-6 text-zinc-500 max-w-[180px]"
+                >
+                    Leadership, volunteering, entrepreneurship,
+                    mentoring, and community initiatives.
+                </p>
+
+
+                <div
+                    class="flex gap-2 mt-8"
+                >
+
+                    <button
+                        id="communityPrev"
+                        class="slider-button"
+                        aria-label="Previous experiences"
+                    >
+                        ←
+                    </button>
+
+                    <button
+                        id="communityNext"
+                        class="slider-button"
+                        aria-label="Next experiences"
+                    >
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SLIDER -->
+
+            <div class="min-w-0">
+
+                <div
+                    id="communitySlider"
+                    class="community-slider gap-4 pb-5"
+                >
+
+
+                    <!-- 01 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                01
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Founder
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Shoiron.tj
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Founded shoiron.tj, formerly mavlono.tj,
+                            the biggest open poetry hub for reading,
+                            sharing and interpreting Persian poetry.
+                            Over 8,800 poetry pieces are available to
+                            date with 2,000+ monthly active users.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            shoiron.tj
+                        </p>
+
+                    </article>
+
+
+                    <!-- 02 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                02
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Regional Ambassador
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Common Voice Tajik
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Actively participated in the campaign
+                            for gathering samples of Tajik language
+                            sentences for further usage in building
+                            TTS and STT models. Held 3 meetings in
+                            person in 2 cities of Tajikistan and
+                            collected over 3,600 voice recordings,
+                            enriching Mozilla Common Voice dataset
+                            of voices by 25%.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            Common Voice Tajik community
+                        </p>
+
+                    </article>
+
+
+                    <!-- 03 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                03
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Head Volunteer
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Blood Donation Center
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Organized the first volunteer group for
+                            the Blood Donation Center in Khujand under
+                            the Ministry of Healthcare. Built an internal
+                            system for managing the donation database
+                            and automated outreach for blood donation
+                            requests. Over 40 litres of blood were
+                            gathered using the automation tool.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            Blood Donation Center in Khujand
+                        </p>
+
+                    </article>
+
+
+                    <!-- 04 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                04
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Host / Author
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Unitalk Podcast
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Hosted 6 podcast series with successful
+                            youth representatives from the region on
+                            university admission, startups and education.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            Unitalk Podcast
+                        </p>
+
+                    </article>
+
+
+                    <!-- 05 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                05
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Volunteer
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Jobify Fest
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Facilitated organization of three job fairs
+                            in 2023 in Khujand. Was responsible for
+                            finding partner companies and negotiated
+                            with 3 local companies to participate in
+                            the fair.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            Jobify Fest · Techno Park of TSULBP
+                        </p>
+
+                    </article>
+
+
+                    <!-- 06 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                06
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Mentoring
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            UNICEF Tajikistan
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Voluntarily taught coding fundamentals to
+                            12 students from villages backed by a
+                            UNICEF grant.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            UNICEF Tajikistan
+                        </p>
+
+                    </article>
+
+
+                    <!-- 07 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                07
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Co Founder
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Aurora Rising Sun
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Provided 114 hours of mentoring to 42 girls
+                            living in Afghanistan who were not allowed
+                            to attend school due to Taliban rules,
+                            across 11 subjects, coordinating 6 volunteer
+                            mentors and teaching myself.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            Aurora Rising Sun · STEM Coordinator
+                        </p>
+
+                    </article>
+
+
+                    <!-- 08 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                08
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Organizer
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Hackathons
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Organized 3 hackathons: Ibn Sina Hackathon
+                            in Khujand in July 2025 with over 60
+                            participants, Digital Generation 1.0 and
+                            Digital Generation 2.0 with over 40 and 50
+                            participants from Sughd region.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            Ibn Sina Hackathon · Digital Gen 1.0 · Digital Gen 2.0
+                        </p>
+
+                    </article>
+
+
+                    <!-- 09 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                09
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                CTO
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Moní AI
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Built an AI legal consultant for Tajik law.
+                            Partnered with the Ministry of Justice and
+                            Internal Affairs and received funding from
+                            a local law firm. The project was featured
+                            in Times of Central Asia and Asia Plus.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            tajiklaw.ai
+                        </p>
+
+                    </article>
+
+
+                    <!-- 10 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                10
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                CTO
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Poputki.online
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Built the first carpooling and bus tickets
+                            platform in Tajikistan. Over 700+ bus tickets
+                            were acquired through the platform by users.
+                            6 logistics companies in Tajikistan sell
+                            tickets through the platform today.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            poputki.online
+                        </p>
+
+                    </article>
+
+
+                    <!-- 11 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                11
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Frontend Developer
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Инноватсияи Ояндасоз
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Worked as Junior Frontend Developer at
+                            an outsource company in Khujand.
+                            Participated in development of ERP, CRM,
+                            team management and e-commerce solutions
+                            for businesses abroad.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            Paid work · Khujand
+                        </p>
+
+                    </article>
+
+
+                    <!-- 12 -->
+
+                    <article
+                        class="community-card glass rounded-3xl p-7 min-h-[330px] flex flex-col"
+                    >
+
+                        <div class="flex justify-between gap-4">
+
+                            <span
+                                class="font-mono text-xs text-zinc-400"
+                            >
+                                12
+                            </span>
+
+                            <span
+                                class="text-xs font-mono text-zinc-400"
+                            >
+                                Paid Work · Mentor
+                            </span>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-7 text-xl font-semibold text-zinc-950"
+                        >
+                            Afkor Academy
+                        </h3>
+
+
+                        <p
+                            class="mt-4 text-sm leading-7 text-zinc-500 flex-grow"
+                        >
+                            Taught Frontend LVL 1 and Frontend LVL 2
+                            courses for teenagers. Over 50 students
+                            graduated, 16 got their first internship,
+                            and 3 were employed as of now.
+                        </p>
+
+
+                        <p
+                            class="mt-6 pt-5 border-t border-zinc-200 font-mono text-xs text-zinc-400"
+                        >
+                            Afkor Academy
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+                <!-- Slider indicators -->
+
+                <div
+                    class="flex items-center justify-between mt-5"
+                >
+
+                    <p
+                        class="text-xs font-mono text-zinc-400"
+                    >
+                        12 experiences
+                    </p>
+
+
+                    <div
+                        id="communityDots"
+                        class="flex gap-1.5"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
+
+<section
+    id="education"
+    class="border-t border-zinc-200"
+>
+
+    <div
+        class="max-w-6xl mx-auto px-6 py-28"
+    >
+
+        <div
+            class="grid lg:grid-cols-2 gap-20"
+        >
+
+
+            <div class="reveal">
+
+                <p
+                    class="section-number font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
+                >
+                    05 / Education
+                </p>
+
+
+                <div class="mt-10 space-y-10">
+
+
+                    <div>
+
+                        <p class="font-mono text-xs text-zinc-400">
+                            2026 — Present
+                        </p>
+
+                        <h3
+                            class="mt-2 text-xl font-semibold text-zinc-950"
+                        >
+                            The Chinese University of Hong Kong, Shenzhen
+                        </h3>
+
+                        <p class="mt-2 text-zinc-500">
+                            School of AI
+                        </p>
+
+                        <p class="mt-1 text-zinc-600">
+                            Major in AI in Business
+                        </p>
+
+                        <p class="mt-1 text-sm text-zinc-400">
+                            Shenzhen, China
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="font-mono text-xs text-zinc-400">
+                            Starting 2029
+                        </p>
+
+                        <h3
+                            class="mt-2 text-xl font-semibold text-zinc-950"
+                        >
+                            Columbia University
+                        </h3>
+
+                        <p class="mt-2 text-zinc-500">
+                            Master of Engineering in AI
+                        </p>
+
+                        <p
+                            class="mt-2 text-sm leading-6 text-zinc-500"
+                        >
+                            Planned as part of the 3+2 program
+                            between CUHK-Shenzhen and Columbia University.
+                            Inshaallah, studies will begin in 2029.
+                        </p>
+
+                        <p class="mt-1 text-sm text-zinc-400">
+                            New York, USA
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="font-mono text-xs text-zinc-400">
+                            Summer 2026
+                        </p>
+
+                        <h3
+                            class="mt-2 text-xl font-semibold text-zinc-950"
+                        >
+                            Yale Young Global Scholars
+                        </h3>
+
+                        <p class="mt-2 text-zinc-500">
+                            Politics, Law, Economics Track
+                        </p>
+
+                        <p
+                            class="mt-2 text-sm leading-6 text-zinc-500"
+                        >
+                            Selected participant and alumni of Yale's
+                            global pre-collegiate program. Delivered a
+                            TED-style speech and developed a capstone
+                            project on migration and remittance-based
+                            economies of Central Asian countries.
+                        </p>
+
+                        <p class="mt-1 text-sm text-zinc-400">
+                            Yale University · New Haven, USA
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <p class="font-mono text-xs text-zinc-400">
+                            High School
+                        </p>
+
+                        <h3
+                            class="mt-2 text-xl font-semibold text-zinc-950"
+                        >
+                            NEI Pulatov's School
+                        </h3>
+
+                        <p class="mt-2 text-sm text-zinc-400">
+                            Khujand, Tajikistan
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="reveal reveal-delay-1">
+
+                <p
+                    class="section-number font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
+                >
+                    Honors
+                </p>
+
+
+                <div class="mt-10 space-y-6">
+
+
+                    <div
+                        class="border-b border-zinc-200 pb-5"
+                    >
+
+                        <h3 class="text-zinc-950 font-medium">
+                            National Debate League, 2x Champion
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            Season 4 and Season 5 · Ranked #1 in
+                            Individual Speakers Rating
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="border-b border-zinc-200 pb-5"
+                    >
+
+                        <h3 class="text-zinc-950 font-medium">
+                            National English Language Olympiad, #1
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            2024, 2026
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="border-b border-zinc-200 pb-5"
+                    >
+
+                        <h3 class="text-zinc-950 font-medium">
+                            The Ethical Leadership Experience
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            Louis August Jonas Foundation Alumni · 2024
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="border-b border-zinc-200 pb-5"
+                    >
+
+                        <h3 class="text-zinc-950 font-medium">
+                            Central Asia Startup Cup, Top 20 Team
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            2025 · Pitched edis.ai
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="border-b border-zinc-200 pb-5"
+                    >
+
+                        <h3 class="text-zinc-950 font-medium">
+                            ILM FURUGI MARIFAT, #2 in Artificial Intelligence
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            2nd place nationally · 1st place regionally
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3 class="text-zinc-950 font-medium">
+                            Academy of Sciences of Tajikistan, 2x Member
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            National Economics Society · National
+                            Informatics Society
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -1004,9 +1896,9 @@
             <div class="reveal">
 
                 <p
-                    class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
+                    class="section-number font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
                 >
-                    04 / Skills
+                    06 / Skills
                 </p>
 
             </div>
@@ -1016,34 +1908,26 @@
                 class="grid md:grid-cols-2 gap-5"
             >
 
-                <div
-                    class="glass rounded-2xl p-6 reveal"
-                >
+                <div class="glass rounded-2xl p-6 reveal">
 
                     <h3 class="text-zinc-950 font-medium">
                         Languages
                     </h3>
 
-                    <p
-                        class="mt-3 text-sm leading-7 text-zinc-500"
-                    >
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
                         Python, JavaScript, TypeScript, SQL, HTML/CSS
                     </p>
 
                 </div>
 
 
-                <div
-                    class="glass rounded-2xl p-6 reveal reveal-delay-1"
-                >
+                <div class="glass rounded-2xl p-6 reveal reveal-delay-1">
 
                     <h3 class="text-zinc-950 font-medium">
                         AI / Machine Learning
                     </h3>
 
-                    <p
-                        class="mt-3 text-sm leading-7 text-zinc-500"
-                    >
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
                         Scikit-learn, PyTorch, TensorFlow, model
                         training, feature engineering, model evaluation, NLP
                     </p>
@@ -1051,17 +1935,13 @@
                 </div>
 
 
-                <div
-                    class="glass rounded-2xl p-6 reveal reveal-delay-2"
-                >
+                <div class="glass rounded-2xl p-6 reveal reveal-delay-2">
 
                     <h3 class="text-zinc-950 font-medium">
                         LLM / AI Systems
                     </h3>
 
-                    <p
-                        class="mt-3 text-sm leading-7 text-zinc-500"
-                    >
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
                         RAG, LLM applications, embeddings, vector search,
                         prompt engineering
                     </p>
@@ -1069,34 +1949,26 @@
                 </div>
 
 
-                <div
-                    class="glass rounded-2xl p-6 reveal reveal-delay-3"
-                >
+                <div class="glass rounded-2xl p-6 reveal reveal-delay-3">
 
                     <h3 class="text-zinc-950 font-medium">
                         Frameworks
                     </h3>
 
-                    <p
-                        class="mt-3 text-sm leading-7 text-zinc-500"
-                    >
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
                         React, Node.js, Express, REST APIs
                     </p>
 
                 </div>
 
 
-                <div
-                    class="glass rounded-2xl p-6 reveal"
-                >
+                <div class="glass rounded-2xl p-6 reveal">
 
                     <h3 class="text-zinc-950 font-medium">
                         Data
                     </h3>
 
-                    <p
-                        class="mt-3 text-sm leading-7 text-zinc-500"
-                    >
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
                         Pandas, NumPy, EDA, data cleaning, normalization,
                         data collection, API integration, visualization
                     </p>
@@ -1104,422 +1976,15 @@
                 </div>
 
 
-                <div
-                    class="glass rounded-2xl p-6 reveal reveal-delay-1"
-                >
+                <div class="glass rounded-2xl p-6 reveal reveal-delay-1">
 
                     <h3 class="text-zinc-950 font-medium">
                         Developer Tools
                     </h3>
 
-                    <p
-                        class="mt-3 text-sm leading-7 text-zinc-500"
-                    >
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
                         Git, Docker, VS Code, PyCharm, Jupyter
                     </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     EDUCATION + HONORS
-========================================================= -->
-
-<section
-    id="education"
-    class="border-t border-zinc-200"
->
-
-    <div
-        class="max-w-6xl mx-auto px-6 py-28"
-    >
-
-        <div
-            class="grid lg:grid-cols-2 gap-20"
-        >
-
-            <!-- EDUCATION -->
-
-            <div class="reveal">
-
-                <p
-                    class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
-                >
-                    05 / Education
-                </p>
-
-
-                <div
-                    class="mt-10 space-y-10"
-                >
-
-                    <!-- CUHK SHENZHEN -->
-
-                    <div>
-
-                        <p
-                            class="font-mono text-xs text-zinc-400"
-                        >
-                            2026 — Present
-                        </p>
-
-                        <h3
-                            class="mt-2 text-xl font-semibold text-zinc-950"
-                        >
-                            The Chinese University of Hong Kong, Shenzhen
-                        </h3>
-
-                        <p class="mt-2 text-zinc-500">
-                            School of AI
-                        </p>
-
-                        <p class="mt-1 text-zinc-600">
-                            Major in AI in Business
-                        </p>
-
-                        <p
-                            class="mt-1 text-sm text-zinc-400"
-                        >
-                            Shenzhen, China
-                        </p>
-
-                    </div>
-
-
-                    <!-- COLUMBIA -->
-
-                    <div>
-
-                        <p
-                            class="font-mono text-xs text-zinc-400"
-                        >
-                            Starting 2029
-                        </p>
-
-                        <h3
-                            class="mt-2 text-xl font-semibold text-zinc-950"
-                        >
-                            Columbia University
-                        </h3>
-
-                        <p class="mt-2 text-zinc-500">
-                            Master of Engineering in AI
-                        </p>
-
-                        <p class="mt-2 text-sm leading-6 text-zinc-500">
-                            Planned as part of the 3+2 program
-                            between CUHK-Shenzhen and Columbia University.
-                            Inshaallah, studies will begin in 2029.
-                        </p>
-
-                        <p
-                            class="mt-1 text-sm text-zinc-400"
-                        >
-                            New York, USA
-                        </p>
-
-                    </div>
-
-
-                    <!-- YALE YYGS -->
-
-                    <div>
-
-                        <p
-                            class="font-mono text-xs text-zinc-400"
-                        >
-                            Summer 2026
-                        </p>
-
-                        <h3
-                            class="mt-2 text-xl font-semibold text-zinc-950"
-                        >
-                            Yale Young Global Scholars
-                        </h3>
-
-                        <p class="mt-2 text-zinc-500">
-                            Politics, Law, Economics Track
-                        </p>
-
-                        <p class="mt-2 text-sm leading-6 text-zinc-500">
-                            Selected participant and alumni of Yale's
-                            global pre-collegiate program. Delivered a
-                            TED-style speech and developed a capstone
-                            project on migration and remittance-based
-                            economies of Central Asian countries.
-                        </p>
-
-                        <p
-                            class="mt-1 text-sm text-zinc-400"
-                        >
-                            Yale University · New Haven, USA
-                        </p>
-
-                    </div>
-
-
-                    <!-- HIGH SCHOOL -->
-
-                    <div>
-
-                        <p
-                            class="font-mono text-xs text-zinc-400"
-                        >
-                            High School
-                        </p>
-
-                        <h3
-                            class="mt-2 text-xl font-semibold text-zinc-950"
-                        >
-                            NEI Pulatov's School
-                        </h3>
-
-                        <p
-                            class="mt-2 text-sm text-zinc-400"
-                        >
-                            Khujand, Tajikistan
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- HONORS -->
-
-            <div class="reveal reveal-delay-1">
-
-                <p
-                    class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
-                >
-                    Honors
-                </p>
-
-
-                <div
-                    class="mt-10 space-y-6"
-                >
-
-                    <div
-                        class="border-b border-zinc-200 pb-5"
-                    >
-
-                        <h3
-                            class="text-zinc-950 font-medium"
-                        >
-                            National Debate League, 2x Champion
-                        </h3>
-
-                        <p
-                            class="text-sm text-zinc-500 mt-1"
-                        >
-                            Season 4 and Season 5 · Ranked #1 in
-                            Individual Speakers Rating
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="border-b border-zinc-200 pb-5"
-                    >
-
-                        <h3
-                            class="text-zinc-950 font-medium"
-                        >
-                            National English Language Olympiad, #1
-                        </h3>
-
-                        <p
-                            class="text-sm text-zinc-500 mt-1"
-                        >
-                            2024, 2026
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="border-b border-zinc-200 pb-5"
-                    >
-
-                        <h3
-                            class="text-zinc-950 font-medium"
-                        >
-                            The Ethical Leadership Experience
-                        </h3>
-
-                        <p
-                            class="text-sm text-zinc-500 mt-1"
-                        >
-                            Louis August Jonas Foundation Alumni · 2024
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="border-b border-zinc-200 pb-5"
-                    >
-
-                        <h3
-                            class="text-zinc-950 font-medium"
-                        >
-                            Central Asia Startup Cup, Top 20 Team
-                        </h3>
-
-                        <p
-                            class="text-sm text-zinc-500 mt-1"
-                        >
-                            2025 · Pitched edis.ai
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="border-b border-zinc-200 pb-5"
-                    >
-
-                        <h3
-                            class="text-zinc-950 font-medium"
-                        >
-                            ILM FURUGI MARIFAT, #2 in Artificial Intelligence
-                        </h3>
-
-                        <p
-                            class="text-sm text-zinc-500 mt-1"
-                        >
-                            2nd place nationally · 1st place regionally
-                        </p>
-
-                    </div>
-
-
-                    <div>
-
-                        <h3
-                            class="text-zinc-950 font-medium"
-                        >
-                            Academy of Sciences of Tajikistan, 2x Member
-                        </h3>
-
-                        <p
-                            class="text-sm text-zinc-500 mt-1"
-                        >
-                            National Economics Society · National
-                            Informatics Society
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     LEADERSHIP
-========================================================= -->
-
-<section
-    class="border-t border-zinc-200"
->
-
-    <div
-        class="max-w-6xl mx-auto px-6 py-28"
-    >
-
-        <div
-            class="grid lg:grid-cols-[220px_1fr] gap-12"
-        >
-
-            <div class="reveal">
-
-                <p
-                    class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
-                >
-                    06 / Leadership
-                </p>
-
-            </div>
-
-
-            <div class="reveal reveal-delay-1">
-
-                <h2
-                    class="text-3xl font-semibold text-zinc-950"
-                >
-                    Teaching & community
-                </h2>
-
-
-                <div
-                    class="mt-10 glass rounded-3xl p-7"
-                >
-
-                    <div
-                        class="flex flex-col md:flex-row justify-between gap-3"
-                    >
-
-                        <div>
-
-                            <h3
-                                class="text-xl font-semibold text-zinc-950"
-                            >
-                                Mentor, Frontend Development
-                            </h3>
-
-                            <p class="mt-1 text-zinc-500">
-                                Afkor Academy · Khujand, Tajikistan
-                            </p>
-
-                        </div>
-
-
-                        <span
-                            class="font-mono text-xs text-zinc-400"
-                        >
-                            Nov. 2022 — Feb. 2023
-                        </span>
-
-                    </div>
-
-
-                    <div
-                        class="mt-6 grid md:grid-cols-2 gap-5 text-sm leading-7 text-zinc-500"
-                    >
-
-                        <p>
-                            Taught two frontend-development classes
-                            simultaneously across two cohorts and
-                            introduced interactive, project-based
-                            teaching methods.
-                        </p>
-
-                        <p>
-                            Mentored students through practical
-                            software-development projects, with four
-                            students subsequently entering employment.
-                        </p>
-
-                    </div>
 
                 </div>
 
@@ -1548,7 +2013,7 @@
         <div class="max-w-3xl reveal">
 
             <p
-                class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
+                class="section-number font-mono text-xs uppercase tracking-[0.25em] text-zinc-400"
             >
                 07 / Contact
             </p>
@@ -1661,10 +2126,13 @@
 
 
 <!-- =========================================================
-     SCROLL ANIMATION
+     SCROLL REVEAL + COMMUNITY AUTO SLIDER
 ========================================================= -->
 
 <script>
+
+    /* Scroll reveal */
+
     document.addEventListener("DOMContentLoaded", function () {
 
         const revealElements =
@@ -1675,41 +2143,363 @@
                 "(prefers-reduced-motion: reduce)"
             ).matches
         ) {
+
             revealElements.forEach(function (element) {
                 element.classList.add("visible");
             });
 
-            return;
+        } else {
+
+            const observer = new IntersectionObserver(
+                function (entries, observer) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visible");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12,
+                    rootMargin: "0px 0px -50px 0px"
+                }
+            );
+
+
+            revealElements.forEach(function (element) {
+                observer.observe(element);
+            });
+
         }
 
-        const observer = new IntersectionObserver(
-            function (entries, observer) {
 
-                entries.forEach(function (entry) {
+        /* Community slider */
 
-                    if (entry.isIntersecting) {
+        const slider =
+            document.getElementById("communitySlider");
 
-                        entry.target.classList.add("visible");
+        const nextButton =
+            document.getElementById("communityNext");
 
-                        observer.unobserve(entry.target);
+        const prevButton =
+            document.getElementById("communityPrev");
 
-                    }
+        const dotsContainer =
+            document.getElementById("communityDots");
 
+
+        const cards =
+            slider.querySelectorAll(".community-card");
+
+
+        let currentIndex = 0;
+        let autoPlay;
+        let isPaused = false;
+
+
+        function getCardsVisible() {
+
+            if (window.innerWidth <= 640) {
+                return 1;
+            }
+
+            if (window.innerWidth <= 900) {
+                return 2;
+            }
+
+            return 3;
+
+        }
+
+
+        function getMaxIndex() {
+
+            return Math.max(
+                0,
+                cards.length - getCardsVisible()
+            );
+
+        }
+
+
+        function updateDots() {
+
+            dotsContainer.innerHTML = "";
+
+            const total =
+                getMaxIndex() + 1;
+
+
+            for (
+                let i = 0;
+                i < total;
+                i++
+            ) {
+
+                const dot =
+                    document.createElement("span");
+
+                dot.className =
+                    "w-1.5 h-1.5 rounded-full transition-all duration-300 " +
+                    (i === currentIndex
+                        ? "bg-zinc-900 w-4"
+                        : "bg-zinc-300");
+
+                dotsContainer.appendChild(dot);
+
+            }
+
+        }
+
+
+        function scrollToIndex(index) {
+
+            const maxIndex =
+                getMaxIndex();
+
+            if (index > maxIndex) {
+                index = 0;
+            }
+
+            if (index < 0) {
+                index = maxIndex;
+            }
+
+            currentIndex = index;
+
+
+            const target =
+                cards[currentIndex];
+
+
+            if (target) {
+
+                slider.scrollTo({
+                    left: target.offsetLeft,
+                    behavior: "smooth"
                 });
 
-            },
-            {
-                threshold: 0.12,
-                rootMargin: "0px 0px -50px 0px"
+            }
+
+
+            updateDots();
+
+        }
+
+
+        function nextSlide() {
+
+            scrollToIndex(
+                currentIndex + 1
+            );
+
+        }
+
+
+        function previousSlide() {
+
+            scrollToIndex(
+                currentIndex - 1
+            );
+
+        }
+
+
+        nextButton.addEventListener(
+            "click",
+            function () {
+
+                nextSlide();
+
+                pauseTemporarily();
+
             }
         );
 
 
-        revealElements.forEach(function (element) {
-            observer.observe(element);
-        });
+        prevButton.addEventListener(
+            "click",
+            function () {
+
+                previousSlide();
+
+                pauseTemporarily();
+
+            }
+        );
+
+
+        function startAutoPlay() {
+
+            clearInterval(autoPlay);
+
+            autoPlay =
+                setInterval(
+                    function () {
+
+                        if (!isPaused) {
+                            nextSlide();
+                        }
+
+                    },
+                    4500
+                );
+
+        }
+
+
+        function pauseTemporarily() {
+
+            isPaused = true;
+
+            clearTimeout(
+                window.communityResumeTimer
+            );
+
+
+            window.communityResumeTimer =
+                setTimeout(
+                    function () {
+
+                        isPaused = false;
+
+                    },
+                    7000
+                );
+
+        }
+
+
+        slider.addEventListener(
+            "mouseenter",
+            function () {
+                isPaused = true;
+            }
+        );
+
+
+        slider.addEventListener(
+            "mouseleave",
+            function () {
+                isPaused = false;
+            }
+        );
+
+
+        slider.addEventListener(
+            "touchstart",
+            function () {
+                isPaused = true;
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        slider.addEventListener(
+            "touchend",
+            function () {
+
+                clearTimeout(
+                    window.communityResumeTimer
+                );
+
+
+                window.communityResumeTimer =
+                    setTimeout(
+                        function () {
+                            isPaused = false;
+                        },
+                        5000
+                    );
+
+            },
+            {
+                passive: true
+            }
+        );
+
+
+        slider.addEventListener(
+            "scroll",
+            function () {
+
+                let closestIndex = 0;
+                let closestDistance = Infinity;
+
+
+                cards.forEach(
+                    function (card, index) {
+
+                        const distance =
+                            Math.abs(
+                                slider.scrollLeft -
+                                card.offsetLeft
+                            );
+
+
+                        if (
+                            distance <
+                            closestDistance
+                        ) {
+
+                            closestDistance =
+                                distance;
+
+                            closestIndex =
+                                index;
+
+                        }
+
+                    }
+                );
+
+
+                const maxIndex =
+                    getMaxIndex();
+
+                currentIndex =
+                    Math.min(
+                        closestIndex,
+                        maxIndex
+                    );
+
+                updateDots();
+
+            }
+        );
+
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                currentIndex =
+                    Math.min(
+                        currentIndex,
+                        getMaxIndex()
+                    );
+
+                updateDots();
+
+            }
+        );
+
+
+        updateDots();
+
+        startAutoPlay();
 
     });
+
 </script>
 
 
