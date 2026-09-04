@@ -1,341 +1,923 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Мы верим, что мечты сбываются. Подайте заявку на премиум подписку и мы подумаем.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="keywords" content="мечтать невредно, премиум, мечты, юмор, сатира">
+    <title>Abubakr Shomirsaidov | AI & Software Engineering</title>
+    <meta name="description" content="Abubakr Shomirsaidov. AI, Machine Learning, Software Engineering and Data Research.">
 
-<meta name="author" content="A. Shomirsaidov">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<meta name="theme-color" content="#1e293b">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'float': 'float 5s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateY(20px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        },
+                        float: {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-8px)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-<link rel="canonical" href="https://mechtatnevredno.com">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-<!-- Open Graph -->
+        body {
+            background: #09090b;
+            color: #e4e4e7;
+        }
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mechtatnevredno.com">
-<meta property="og:title" content="мечтатьневредно.com">
-<meta property="og:description" content="Мы верим, что мечты сбываются. Оставьте заявку и мы подумаем.">
-<meta property="og:image" content="https://mechtatnevredno.com/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="мечтатьневредно.com">
+        ::selection {
+            background: #e4e4e7;
+            color: #09090b;
+        }
 
-<!-- Twitter -->
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="мечтатьневредно.com">
-<meta name="twitter:description" content="Мы верим, что мечты сбываются.">
-<meta name="twitter:image" content="https://mechtatnevredno.com/og-image.jpg">
+        .glass {
+            background: rgba(24, 24, 27, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
 
-<!-- Telegram -->
+        .project-card {
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
 
-<meta property="telegram:channel" content="@yourchannel">
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.22);
+        }
 
-<!-- Favicon -->
+        .timeline-line {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0.35),
+                rgba(255,255,255,0.03)
+            );
+        }
 
-
-
-<title>мечтатьневредно.com</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Manrope',sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
-    color:white;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow-x:hidden;
-}
-
-.container{
-    width:min(900px,92%);
-    text-align:center;
-}
-
-.logo{
-    font-size:clamp(2rem,8vw,3.8rem);
-    font-weight:800;
-    margin-bottom:16px;
-    letter-spacing:-0.04em;
-    line-height:1.05;
-    overflow-wrap:anywhere;
-    word-break:break-word;
-}
-
-.tagline{
-    font-size:22px;
-    color:#cbd5e1;
-    margin-bottom:40px;
-}
-
-.card{
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:28px;
-    padding:48px;
-    box-shadow:0 30px 60px rgba(0,0,0,.25);
-}
-
-h2{
-    font-size:36px;
-    margin-bottom:22px;
-}
-
-p{
-    color:#d1d5db;
-    line-height:1.8;
-    font-size:18px;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:35px;
-    padding:18px 42px;
-    background:#6366f1;
-    color:white;
-    border:none;
-    cursor:pointer;
-    border-radius:14px;
-    font-size:18px;
-    font-weight:700;
-    transition:.25s;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-    background:#4f46e5;
-}
-
-.form{
-    display:none;
-    margin-top:35px;
-    animation:fade .4s ease;
-}
-
-.form input{
-    width:100%;
-    padding:17px;
-    margin:12px 0;
-    border:none;
-    border-radius:12px;
-    outline:none;
-    font-size:16px;
-    background:rgba(255,255,255,.12);
-    color:white;
-}
-
-.form input::placeholder{
-    color:#cbd5e1;
-}
-
-.submit{
-    width:100%;
-    margin-top:14px;
-    padding:17px;
-    border:none;
-    border-radius:12px;
-    background:#6366f1;
-    color:white;
-    font-size:17px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.submit:hover{
-    background:#4f46e5;
-}
-
-.success{
-    display:none;
-    margin-top:35px;
-    animation:fade .5s ease;
-}
-
-.success h3{
-    font-size:34px;
-    color:#7CFFB2;
-    margin-bottom:12px;
-}
-
-.success p{
-    font-size:20px;
-    color:white;
-}
-
-.footer{
-    margin-top:45px;
-    color:#94a3b8;
-    font-size:14px;
-}
-
-@keyframes fade{
-
-from{
-opacity:0;
-transform:translateY(20px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-canvas{
-position:fixed;
-left:0;
-top:0;
-pointer-events:none;
-z-index:9999;
-}
-
-</style>
-
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+    </style>
 </head>
 
-<body>
+<body class="font-sans antialiased">
 
-<div class="container">
+<!-- NAVIGATION -->
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-zinc-950/80 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
-<div class="logo">
-мечтатьневредно.com
-</div>
+        <a href="#" class="font-mono text-sm tracking-wider text-zinc-300">
+            AS<span class="text-zinc-600">.</span>
+        </a>
 
-<div class="tagline">
-Мы верим, что мечты сбываются.
-</div>
+        <div class="hidden md:flex items-center gap-7 text-sm text-zinc-500">
+            <a href="#about" class="hover:text-white transition">About</a>
+            <a href="#experience" class="hover:text-white transition">Experience</a>
+            <a href="#projects" class="hover:text-white transition">Projects</a>
+            <a href="#education" class="hover:text-white transition">Education</a>
+            <a href="#contact" class="hover:text-white transition">Contact</a>
+        </div>
 
-<div class="card">
+        <a
+            href="mailto:126080022@link.cuhk.edu.cn"
+            class="text-xs font-mono border border-white/10 px-4 py-2 rounded-full hover:bg-white hover:text-black transition"
+        >
+            Get in touch
+        </a>
+    </div>
+</nav>
 
-<h2>Добро пожаловать</h2>
 
-<p>
-Каждая большая история начиналась с мечты.
-</p>
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center overflow-hidden grid-bg">
 
-<br>
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-white/[0.025] blur-3xl"></div>
+    </div>
 
-<p>
-На нашем сайте можно приобрести премиум подписки.
-Оставьте заявку ниже и мы <b>подумаем.</b>
-</p>
+    <div class="max-w-6xl mx-auto px-6 pt-24 pb-20 w-full">
 
-<button class="btn" id="openForm">
-Приобрести премиум
-</button>
+        <div class="grid lg:grid-cols-[1fr_280px] gap-14 items-center">
 
-<div class="form" id="form">
+            <div class="reveal">
 
-<input type="text" placeholder="Ваше имя">
+                <div class="flex items-center gap-3 mb-7">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                    <span class="text-xs font-mono uppercase tracking-[0.25em] text-zinc-500">
+                        AI & Software Engineering
+                    </span>
+                </div>
 
-<input type="text" placeholder="@telegram">
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95] text-white">
+                    Abubakr<br>
+                    <span class="text-zinc-500">Shomirsaidov</span>
+                </h1>
 
-<input type="tel" placeholder="Телефон">
+                <p class="mt-8 max-w-2xl text-lg leading-8 text-zinc-400">
+                    I build AI systems, software products, and data-driven solutions.
+                    My work sits at the intersection of artificial intelligence,
+                    software engineering, and applied research.
+                </p>
 
-<button class="submit" id="submitBtn">
-Отправить заявку
-</button>
+                <div class="mt-9 flex flex-wrap gap-3">
+                    <a
+                        href="#projects"
+                        class="px-5 py-3 bg-white text-black rounded-full text-sm font-medium hover:bg-zinc-200 transition"
+                    >
+                        View my work
+                    </a>
 
-</div>
+                    <a
+                        href="https://github.com/Shomirsaidov"
+                        target="_blank"
+                        class="px-5 py-3 border border-white/10 rounded-full text-sm text-zinc-300 hover:bg-white/5 transition"
+                    >
+                        GitHub ↗
+                    </a>
 
-<div class="success" id="success">
+                    <a
+                        href="https://linkedin.com/in/abubakr-shomirsaidov-568a96366/"
+                        target="_blank"
+                        class="px-5 py-3 border border-white/10 rounded-full text-sm text-zinc-300 hover:bg-white/5 transition"
+                    >
+                        LinkedIn ↗
+                    </a>
+                </div>
 
-<h3>
-🎉 Ваша заявка принята.
-</h3>
+            </div>
 
-<p>
-Мы "подумаем" :)
-</p>
 
-</div>
+            <!-- PROFILE PHOTO -->
+            <div class="flex justify-center lg:justify-end reveal">
 
-</div>
+                <div class="relative animate-float">
 
-<div class="footer">
-© 2026 мечтатьневредно.com • Made by A.Shomirsaidov
-</div>
+                    <div class="absolute -inset-4 rounded-[2rem] border border-white/5"></div>
 
-</div>
+                    <div class="relative w-60 h-60 sm:w-64 sm:h-64 rounded-[1.7rem] overflow-hidden border border-white/10 bg-zinc-900">
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+                        <img
+                            src="https://www.image2url.com/r2/default/images/1788525425328-1886965e-6f49-43e3-b629-c4f5cf76369d.png"
+                            alt="Abubakr Shomirsaidov"
+                            class="w-full h-full object-cover"
+                        >
 
-<script>
+                    </div>
 
-const openBtn=document.getElementById("openForm");
-const form=document.getElementById("form");
-const success=document.getElementById("success");
+                    <div class="absolute -bottom-5 -left-5 glass rounded-xl px-4 py-3">
+                        <p class="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                            Currently
+                        </p>
+                        <p class="text-sm text-white mt-1">
+                            AI in Business
+                        </p>
+                    </div>
 
-openBtn.addEventListener("click",()=>{
+                </div>
 
-openBtn.style.display="none";
-form.style.display="block";
+            </div>
 
-});
+        </div>
 
-document.getElementById("submitBtn").addEventListener("click",(e)=>{
+    </div>
+</section>
 
-e.preventDefault();
 
-form.style.display="none";
-success.style.display="block";
+<!-- ABOUT -->
+<section id="about" class="border-t border-white/5">
 
-const duration=2500;
-const end=Date.now()+duration;
+    <div class="max-w-6xl mx-auto px-6 py-28">
 
-(function frame(){
+        <div class="grid lg:grid-cols-[220px_1fr] gap-12">
 
-confetti({
-particleCount:5,
-angle:60,
-spread:55,
-origin:{x:0}
-});
+            <div>
+                <p class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600">
+                    01 / About
+                </p>
+            </div>
 
-confetti({
-particleCount:5,
-angle:120,
-spread:55,
-origin:{x:1}
-});
+            <div>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white">
+                    Building at the intersection of
+                    <span class="text-zinc-600">AI and real-world problems.</span>
+                </h2>
 
-if(Date.now()<end){
-requestAnimationFrame(frame);
-}
+                <p class="mt-7 text-zinc-400 leading-8 max-w-3xl">
+                    I am an AI and software developer focused on building practical
+                    machine learning systems, full-stack applications, and
+                    AI-powered products. My experience spans financial technology,
+                    legal technology, transportation, natural language processing,
+                    and data systems.
+                </p>
 
-})();
+                <div class="grid sm:grid-cols-3 gap-4 mt-12">
 
-setTimeout(()=>{
+                    <div class="glass rounded-2xl p-6">
+                        <p class="text-3xl font-semibold text-white">3+</p>
+                        <p class="mt-2 text-sm text-zinc-500">
+                            Years building software
+                        </p>
+                    </div>
 
-confetti({
-particleCount:250,
-spread:150,
-origin:{y:.6}
-});
+                    <div class="glass rounded-2xl p-6">
+                        <p class="text-3xl font-semibold text-white">2,000+</p>
+                        <p class="mt-2 text-sm text-zinc-500">
+                            Persian poems on Shoiron
+                        </p>
+                    </div>
 
-},400);
+                    <div class="glass rounded-2xl p-6">
+                        <p class="text-3xl font-semibold text-white">1500</p>
+                        <p class="mt-2 text-sm text-zinc-500">
+                            SAT score
+                        </p>
+                    </div>
 
-});
+                </div>
 
-</script>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+<section id="experience" class="border-t border-white/5">
+
+    <div class="max-w-6xl mx-auto px-6 py-28">
+
+        <div class="grid lg:grid-cols-[220px_1fr] gap-12">
+
+            <div>
+                <p class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600">
+                    02 / Experience
+                </p>
+            </div>
+
+            <div class="space-y-12">
+
+                <!-- ZYPL -->
+                <article class="relative pl-8 border-l border-white/10">
+
+                    <div class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-white"></div>
+
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">
+                                Machine Learning Intern
+                            </h3>
+                            <p class="text-zinc-500 mt-1">
+                                Zypl.ai · Dushanbe, Tajikistan
+                            </p>
+                        </div>
+
+                        <span class="font-mono text-xs text-zinc-600">
+                            Oct. 2024 — May 2025
+                        </span>
+                    </div>
+
+                    <ul class="mt-6 space-y-3 text-sm leading-6 text-zinc-400">
+                        <li>Worked on AI-based credit-scoring systems for financial institutions across Asia.</li>
+                        <li>Trained three credit-scoring models used by partner institutions including Planet9, Barakat Moliya, and FMFB.</li>
+                        <li>Designed and developed <span class="font-mono text-zinc-300">zypl-macro</span>, a Python library for collecting real-time macroeconomic indicators.</li>
+                        <li>Worked with financial data while addressing data quality, privacy, ethical, and regulatory constraints.</li>
+                    </ul>
+
+                </article>
+
+
+                <!-- PLC -->
+                <article class="relative pl-8 border-l border-white/10">
+
+                    <div class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-zinc-600"></div>
+
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">
+                                Full-Stack Developer
+                            </h3>
+
+                            <p class="text-zinc-500 mt-1">
+                                PLC Group · Remote
+                            </p>
+                        </div>
+
+                        <span class="font-mono text-xs text-zinc-600">
+                            2024 — 2025
+                        </span>
+
+                    </div>
+
+                    <ul class="mt-6 space-y-3 text-sm leading-6 text-zinc-400">
+                        <li>Developed full-stack functionality for an automotive marketplace.</li>
+                        <li>Built frontend components and backend services using JavaScript, React, Node.js, REST APIs, and PostgreSQL.</li>
+                        <li>Implemented vehicle search, filtering, customer requests, and auction workflows.</li>
+                        <li>Debugged production issues and maintained reusable components across the platform.</li>
+                    </ul>
+
+                </article>
+
+
+                <!-- POPUTKI -->
+                <article class="relative pl-8 border-l border-white/10">
+
+                    <div class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-zinc-600"></div>
+
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">
+                                Full-Stack Developer
+                            </h3>
+
+                            <p class="text-zinc-500 mt-1">
+                                Poputki.online · Tajikistan
+                            </p>
+                        </div>
+
+                        <span class="font-mono text-xs text-zinc-600">
+                            2023 — 2024
+                        </span>
+
+                    </div>
+
+                    <ul class="mt-6 space-y-3 text-sm leading-6 text-zinc-400">
+                        <li>Developed features for a ride-sharing and intercity transportation platform.</li>
+                        <li>Built interfaces for routes, trips, bookings, profiles, and driver functionality.</li>
+                        <li>Developed REST APIs and database operations using Node.js and PostgreSQL.</li>
+                        <li>Implemented booking logic, seat availability, notifications, ratings, and reviews.</li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects" class="border-t border-white/5">
+
+    <div class="max-w-6xl mx-auto px-6 py-28">
+
+        <div class="grid lg:grid-cols-[220px_1fr] gap-12">
+
+            <div>
+                <p class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600">
+                    03 / Projects
+                </p>
+            </div>
+
+            <div>
+
+                <div class="grid md:grid-cols-2 gap-5">
+
+                    <!-- TAJIKLAW -->
+                    <article class="project-card glass rounded-3xl p-7">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <span class="font-mono text-xs text-zinc-600">
+                                    01
+                                </span>
+
+                                <h3 class="mt-4 text-2xl font-semibold text-white">
+                                    TajikLaw.ai
+                                </h3>
+                            </div>
+
+                            <span class="text-xs font-mono text-zinc-600">
+                                2024 — 2026
+                            </span>
+
+                        </div>
+
+                        <p class="mt-6 text-sm leading-7 text-zinc-400">
+                            AI legal-information platform designed to provide
+                            Tajik citizens with accessible legislative information
+                            and assist local firms with legal-document analysis.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mt-7">
+
+                            <span class="px-3 py-1.5 rounded-full bg-white/5 text-xs text-zinc-400">
+                                Python
+                            </span>
+
+                            <span class="px-3 py-1.5 rounded-full bg-white/5 text-xs text-zinc-400">
+                                RAG
+                            </span>
+
+                            <span class="px-3 py-1.5 rounded-full bg-white/5 text-xs text-zinc-400">
+                                LLMs
+                            </span>
+
+                            <span class="px-3 py-1.5 rounded-full bg-white/5 text-xs text-zinc-400">
+                                NLP
+                            </span>
+
+                            <span class="px-3 py-1.5 rounded-full bg-white/5 text-xs text-zinc-400">
+                                Vector Search
+                            </span>
+
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-white/5">
+
+                            <p class="text-sm text-zinc-500">
+                                U.S. Department of State funded
+                            </p>
+
+                            <p class="mt-2 text-sm text-zinc-300">
+                                $8,000 investment offer from Aloqa Ventures
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- SHOIRON -->
+                    <article class="project-card glass rounded-3xl p-7">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+                                <span class="font-mono text-xs text-zinc-600">
+                                    02
+                                </span>
+
+                                <h3 class="mt-4 text-2xl font-semibold text-white">
+                                    Shoiron.tj / Mavlono
+                                </h3>
+                            </div>
+
+                            <span class="text-xs font-mono text-zinc-600">
+                                2023 — 2026
+                            </span>
+
+                        </div>
+
+                        <p class="mt-6 text-sm leading-7 text-zinc-400">
+                            Open-source Persian poetry platform containing
+                            2,000+ poems with an AI component for interpreting
+                            and explaining poetic meaning.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mt-7">
+
+                            <span class="px-3 py-1.5 rounded-full bg-white/5 text-xs text-zinc-400">
+                                Python
+                            </span>
+
+                            <span class="px-3 py-1.5 rounded-full bg-white/5 text-xs text-zinc-400">
+                                NLP
+                            </span>
+
+                            <span class="px-3 py-1.5 rounded-full bg-white/5 text-xs text-zinc-400">
+                                LLMs
+                            </span>
+
+                            <span class="px-3 py-1.5 rounded-full bg-white/5 text-xs text-zinc-400">
+                                Web Development
+                            </span>
+
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-white/5">
+
+                            <p class="text-sm text-zinc-500">
+                                AI-assisted interpretation
+                            </p>
+
+                            <p class="mt-2 text-sm text-zinc-300">
+                                Persian-language cultural data preservation
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+<section class="border-t border-white/5">
+
+    <div class="max-w-6xl mx-auto px-6 py-28">
+
+        <div class="grid lg:grid-cols-[220px_1fr] gap-12">
+
+            <div>
+                <p class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600">
+                    04 / Skills
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5">
+
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-white font-medium">Languages</h3>
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
+                        Python, JavaScript, TypeScript, SQL, HTML/CSS
+                    </p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-white font-medium">AI / Machine Learning</h3>
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
+                        Scikit-learn, PyTorch, TensorFlow, model training,
+                        feature engineering, model evaluation, NLP
+                    </p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-white font-medium">LLM / AI Systems</h3>
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
+                        RAG, LLM applications, embeddings, vector search,
+                        prompt engineering
+                    </p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-white font-medium">Frameworks</h3>
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
+                        React, Node.js, Express, REST APIs
+                    </p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-white font-medium">Data</h3>
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
+                        Pandas, NumPy, EDA, data cleaning, normalization,
+                        data collection, API integration, visualization
+                    </p>
+                </div>
+
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-white font-medium">Developer Tools</h3>
+                    <p class="mt-3 text-sm leading-7 text-zinc-500">
+                        Git, Docker, VS Code, PyCharm, Jupyter
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION + HONORS -->
+<section id="education" class="border-t border-white/5">
+
+    <div class="max-w-6xl mx-auto px-6 py-28">
+
+        <div class="grid lg:grid-cols-2 gap-20">
+
+            <!-- EDUCATION -->
+            <div>
+
+                <p class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600">
+                    05 / Education
+                </p>
+
+                <div class="mt-10 space-y-10">
+
+                    <div>
+                        <p class="font-mono text-xs text-zinc-600">
+                            2026 — Present
+                        </p>
+
+                        <h3 class="mt-2 text-xl font-semibold text-white">
+                            The Chinese University of Hong Kong, Shenzhen
+                        </h3>
+
+                        <p class="mt-2 text-zinc-500">
+                            School of AI
+                        </p>
+
+                        <p class="mt-1 text-zinc-400">
+                            Major in AI in Business
+                        </p>
+
+                        <p class="mt-1 text-sm text-zinc-600">
+                            Shenzhen, China
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <p class="font-mono text-xs text-zinc-600">
+                            High School
+                        </p>
+
+                        <h3 class="mt-2 text-xl font-semibold text-white">
+                            NEI Pulatov's School
+                        </h3>
+
+                        <p class="mt-2 text-sm text-zinc-600">
+                            Khujand, Tajikistan
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HONORS -->
+            <div>
+
+                <p class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600">
+                    Honors
+                </p>
+
+                <div class="mt-10 space-y-6">
+
+                    <div class="border-b border-white/5 pb-5">
+                        <h3 class="text-white font-medium">
+                            Yale Young Global Scholars Alumni
+                        </h3>
+                        <p class="text-sm text-zinc-500 mt-1">
+                            Politics, Law, Economics Track · 2026
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/5 pb-5">
+                        <h3 class="text-white font-medium">
+                            National Debate League, 2x Champion
+                        </h3>
+                        <p class="text-sm text-zinc-500 mt-1">
+                            Season 4 and Season 5 · Ranked #1 in Individual Speakers Rating
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/5 pb-5">
+                        <h3 class="text-white font-medium">
+                            National English Language Olympiad, #1
+                        </h3>
+                        <p class="text-sm text-zinc-500 mt-1">
+                            2024, 2026
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/5 pb-5">
+                        <h3 class="text-white font-medium">
+                            The Ethical Leadership Experience
+                        </h3>
+                        <p class="text-sm text-zinc-500 mt-1">
+                            Louis August Jonas Foundation Alumni · 2024
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/5 pb-5">
+                        <h3 class="text-white font-medium">
+                            Central Asia Startup Cup, Top 20 Team
+                        </h3>
+                        <p class="text-sm text-zinc-500 mt-1">
+                            2025 · Pitched edis.ai
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/5 pb-5">
+                        <h3 class="text-white font-medium">
+                            ILM FURUGI MARIFAT, #2 in Artificial Intelligence
+                        </h3>
+                        <p class="text-sm text-zinc-500 mt-1">
+                            2nd place nationally · 1st place regionally
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-medium">
+                            Academy of Sciences of Tajikistan, 2x Member
+                        </h3>
+                        <p class="text-sm text-zinc-500 mt-1">
+                            National Economics Society · National Informatics Society
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LEADERSHIP -->
+<section class="border-t border-white/5">
+
+    <div class="max-w-6xl mx-auto px-6 py-28">
+
+        <div class="grid lg:grid-cols-[220px_1fr] gap-12">
+
+            <div>
+                <p class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600">
+                    06 / Leadership
+                </p>
+            </div>
+
+            <div>
+
+                <h2 class="text-3xl font-semibold text-white">
+                    Teaching & community
+                </h2>
+
+                <div class="mt-10 glass rounded-3xl p-7">
+
+                    <div class="flex flex-col md:flex-row justify-between gap-3">
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-white">
+                                Mentor, Frontend Development
+                            </h3>
+
+                            <p class="mt-1 text-zinc-500">
+                                Afkor Academy · Khujand, Tajikistan
+                            </p>
+                        </div>
+
+                        <span class="font-mono text-xs text-zinc-600">
+                            Nov. 2022 — Feb. 2023
+                        </span>
+
+                    </div>
+
+                    <div class="mt-6 grid md:grid-cols-2 gap-5 text-sm leading-7 text-zinc-400">
+
+                        <p>
+                            Taught two frontend-development classes simultaneously
+                            across two cohorts and introduced interactive,
+                            project-based teaching methods.
+                        </p>
+
+                        <p>
+                            Mentored students through practical software-development
+                            projects, with four students subsequently entering employment.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="border-t border-white/5">
+
+    <div class="max-w-6xl mx-auto px-6 py-32">
+
+        <div class="max-w-3xl">
+
+            <p class="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600">
+                07 / Contact
+            </p>
+
+            <h2 class="mt-7 text-5xl md:text-6xl font-semibold tracking-tight text-white">
+                Let's build something
+                <span class="text-zinc-600">useful.</span>
+            </h2>
+
+            <p class="mt-7 text-zinc-500 leading-7 max-w-xl">
+                Interested in AI, software engineering, research, or building
+                something together? Reach me through email or LinkedIn.
+            </p>
+
+            <div class="mt-9 flex flex-wrap gap-3">
+
+                <a
+                    href="mailto:126080022@link.cuhk.edu.cn"
+                    class="px-6 py-3 bg-white text-black rounded-full text-sm font-medium hover:bg-zinc-200 transition"
+                >
+                    126080022@link.cuhk.edu.cn
+                </a>
+
+                <a
+                    href="https://linkedin.com/in/abubakr-shomirsaidov-568a96366/"
+                    target="_blank"
+                    class="px-6 py-3 border border-white/10 rounded-full text-sm text-zinc-300 hover:bg-white/5 transition"
+                >
+                    LinkedIn ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5">
+
+    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between gap-4">
+
+        <p class="font-mono text-xs text-zinc-600">
+            © 2026 Abubakr Shomirsaidov
+        </p>
+
+        <div class="flex gap-6 text-xs text-zinc-600">
+
+            <a
+                href="https://github.com/Shomirsaidov"
+                target="_blank"
+                class="hover:text-white transition"
+            >
+                GitHub
+            </a>
+
+            <a
+                href="https://linkedin.com/in/abubakr-shomirsaidov-568a96366/"
+                target="_blank"
+                class="hover:text-white transition"
+            >
+                LinkedIn
+            </a>
+
+            <a
+                href="mailto:126080022@link.cuhk.edu.cn"
+                class="hover:text-white transition"
+            >
+                Email
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
